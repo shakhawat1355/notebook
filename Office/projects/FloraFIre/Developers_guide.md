@@ -69,5 +69,3 @@ This project is built by a dedicated team of developers passionate about e-comme
 
 - **Mahbubur Rahman**: Project Manager
 - **Afia Apu**: Team Lead
-
-We welcome contributions from the community. Feel free to fork the repository and submit pull requests!
