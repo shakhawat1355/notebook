@@ -63,4 +63,4 @@ We adhere to the following coding styles and best practices:
 
 We have our own Gitflow policy that implements the best practices for versioning. Visit our gitflow process documentation -
 
-[Flora Git Flow Process](gitFlow.md).
+[Flora Git Flow Process](VERSION_CONTROL_AND_RELEASE.md).
