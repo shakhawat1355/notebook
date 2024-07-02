@@ -181,3 +181,7 @@ The coding guidelines are enforced through the `.editorconfig` file in Visual St
 ### Adherence to Guidelines
 
 Ensuring all team members adhere to these coding standards is essential for maintaining code quality, readability, and consistency. Regular code reviews, automated code analysis tools, and adherence to the `.editorconfig` settings can help enforce these standards effectively.
+
+### References
+1. NopCommerce coding standards
+2. nopStation coding standards
