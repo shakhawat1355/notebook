@@ -4,9 +4,9 @@
 Link to the ticket:
 
 ## Changes Made
-- Added validation etc 
-- Added Models
-- Refactored Factories etc
+- .....
+- ....
+- .....
 
 ## Checklist:
 
@@ -35,8 +35,6 @@ Link to the ticket:
 - [ ] All commits have proper messages
 - [ ] Pull/merge request guidelines are followed
 
-### Testing
-- [ ] All new and modified code is covered by appropriate unit (if applicable) and integration tests (if applicable)
 
 ### Security
 - [ ] Security best practices are considered
