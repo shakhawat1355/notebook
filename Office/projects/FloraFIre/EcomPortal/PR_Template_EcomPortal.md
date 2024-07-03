@@ -1,27 +1,46 @@
 # Feature Addition PR Template
 
-## Task Description
-Please include a summary of the feature and which issue is fixed. Include relevant motivation and context.
-
 ## Jira/Trello Ticket
 Link to the ticket:
 
 ## Changes Made
-- [ ] Added validation etc 
-- [ ] Added Models
-- [ ] Refactored Factories etc
+- Added validation etc 
+- Added Models
+- Refactored Factories etc
 
 ## Checklist:
+
+### Requirements & Functionality
 - [ ] Changed Jira card Status
-- [ ] Removed Unnecessary spaces/Fields/directives from code
-- [ ] Removed Unnecessary spaces from code
-- [ ] Followed Poper Naming Conventions
-- [ ] Added commenets, particularly in hard-to-understand areas.
-- [ ] Resolve conflicts between develop and my branche locally
-- [ ] Made sure no build error occurs
+- [ ] Have the requirements been met? 
+- [ ] The new feature will not negatively impact existing functionality.
+- [ ] All different errors and warnings are handled correctly and logged
 
+### Clean Code Conventions
+- [ ] Code is properly formatted
+- [ ] unnecessary spaces/fields/directives removed, alignment is correct, and fits within the monitor screen
+- [ ] No duplicated code (DRY Principle) and each class/method has a single responsibility
+- [ ] Relevant parameters are configurable
+- [ ] Naming conventions are followed
+- [ ] Comments are meaningful and placed where the code is not self-explanatory
 
-## Additional Details  (if applicable)
+### Code Formatting
+- [ ] Code is optimized for readability and is consistent with the rest of the codebase
+
+### Performance
+- [ ] Code is optimized for performance, especially database queries, loops, conditions, and data types
+
+### Version Controlling
+- [ ] Environment and feature branch are maintained properly
+- [ ] All commits have proper messages
+- [ ] Pull/merge request guidelines are followed
+
+### Testing
+- [ ] All new and modified code is covered by appropriate unit (if applicable) and integration tests (if applicable)
+
+### Security
+- [ ] Security best practices are considered
+- [ ] use of Sonarlint or similar tools if applicable
+
+## Special Comment (if applicable)
 Include screenshots of the new feature or links to relevant resources.
-
-
