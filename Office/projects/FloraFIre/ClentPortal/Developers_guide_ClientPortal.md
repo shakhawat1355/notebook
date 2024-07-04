@@ -59,3 +59,12 @@ The FloraFire ClientPortal architecture follows a layered design pattern, typica
   - Provides common testing utilities or setups used across multiple test projects.
 
 
+## The ABP Framework
+
+To get a more deep understanding of the project, you can read the [ABP Framework documentation](https://docs.abp.io/en/abp/latest/Tutorials/Todo/Overall).
+
+
+## Frontend Overviews
+
+Angular 17 has been used as a frontend framework in MAS florafire clientend project. Follow this [Installation Guide](https://angular.dev/tools/cli/setup-local/)
+
