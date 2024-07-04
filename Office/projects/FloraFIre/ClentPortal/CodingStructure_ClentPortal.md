@@ -89,7 +89,7 @@
 ```
 
 
-### .NET MVC Coding style
+### .NET Web API Coding style
 we strongly recommend to use a **.editorconfig** file in visual studio 2022 to maintain a default coding style. Just create a file with name - **.editorconfig** and paste the below code there in your project. You may need multiple .editorconfig files for each projects.
 
 **.editorconfig**
