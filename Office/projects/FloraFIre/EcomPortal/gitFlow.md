@@ -28,10 +28,12 @@
     - `A reviewer approves the pull request after resolving any issues but does not merge it.`
 
 2. **Testing:**
-    - Multiple developers merge their different features into the `test_deploy` branch.
+    - If the pull request created in `develop` branch gets approved, then  developers will merge their feature branches into the `test_deploy` branch.
     - The `test_deploy` branch is deployed to the Test Site for testing by developers and QA.
+    - If there's any bugfix or feedback from QA, after resolving them,the pull request to `develop` branch needs to be reviewed again and the process will repeat.
     - Do not merge `test_deploy` into `feature_xxx` or any other branch.
     - Resolve and commit merge conflicts on the `test_deploy` branch.
+
 
 3. **Client Approval:**
     - **After testing on the Test Site is done and the client approves the feature for production (`feature_xxx`), sync the `develop` branch in the feature branch.**
