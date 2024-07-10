@@ -1,5 +1,5 @@
 # Git Workflow
-![Workflow Image](media/git-flow.png)
+
 ## Environments:
 
 - Test Site
@@ -35,12 +35,12 @@
     - Dev site deployment will be done from  the `develop` branch.
     - Each push to develop branch will trigger a CD pipeline
     to deploy code of the develop branch to dev site.
+    - If there's any bugfix or feedback from QA, after resolving them,the pull request to `develop` branch needs to be reviewed again and the process will repeat.
 
 3. **Deployment to Live Site:**
     - When the client requests deployment to the Live Site, create a new `release_xxx` branch from the `main` branch.
     - Merge the `feature_xxx` into the `release_xxx` branch, squashing commits.
     - Deploy the `release_xxx` branch to the Stage Site for UAT.
-    - Update plugins and other versions on this branch.
     - If needed, fix issues on the `feature_xxx` or `release_xxx` branches.
     - Once UAT is approved, merge `release_xxx` into `develop` and `master`, and deploy to the Live Site.
 
@@ -70,7 +70,6 @@
 **Note:**
 -
 - Squash commits while merging into `develop`, `master`, and `release_xxx`.
-- A reviewer approves the pull request after resolving any issues but does not merge it.
 - Delete the feature branch right after releasing. 
 
 **Don't -**
