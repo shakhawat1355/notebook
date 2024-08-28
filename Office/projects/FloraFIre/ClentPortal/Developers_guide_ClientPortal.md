@@ -12,6 +12,15 @@ Read more at [Project Overview](Project_Overview.md).
 
 To get a more deep understanding of the project, you can read the [ABP Framework documentation](https://docs.abp.io/en/abp/latest/Tutorials/Todo/Overall).
 
+## Coding Conversions
+Follow these guidelines for coding conversions.
+1.  [ABP framework coding conversion](https://abp.io/docs/latest/framework/architecture/best-practices?_redirected=B8ABF606AA1BDF5C629883DF1061649A)
+2.  [Angular framework coding conversion](https://angular.dev/style-guide)
+
+## PR Review Guideline
+follow the [PR Guideline](PR_Review_Guide.md) to create and Reveiw Pull Requests.
+
+
 
 ## Backend Installation 
 

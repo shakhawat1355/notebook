@@ -1,4 +1,4 @@
-# PR Review Guide
+# PR Review Guideline
 
 ## Naming Conventions
 
