@@ -90,6 +90,12 @@ dotnet run
 ```
 it should update your database. Now set **MAS.FloraFire.ClientPortal.HttpApi.Host** as startup project and run the project.
 
+### 6. Installing the Client-Side Packages
+Navigate to root directory of the project and run the command to install the client-side packages.
+command:
+```
+abp install-libs
+```
 
 ## Frontend Installation 
 
@@ -100,7 +106,12 @@ it should update your database. Now set **MAS.FloraFire.ClientPortal.HttpApi.Hos
   ```bash
   npm install
   ```
-
+- **Alternate way**:
+if npm install is showing error then try this command to install 
+all dependencies. Before you run this command make sure yarn is installed globally. 
+  ```bash
+  yarn install
+  ```
 ### 2. Generate Proxy
 
 - Run the following command:
