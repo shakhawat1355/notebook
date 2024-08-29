@@ -15,7 +15,7 @@ like in the above example commit messages for branch
 ## PR Assignment and Tracking
 
 - **Assign Yourself**: If you are the assignee or the reviewer, make sure to assign yourself to the PR.
-- **Add PR to Review Sheet**: Add the PR link to the PR review sheet.
+- **Add PR to Review Sheet**: Add the PR link to the [PR sheet](https://tinyurl.com/2be5zsg8) .
 
 ## PR Checklist
 
@@ -23,7 +23,8 @@ like in the above example commit messages for branch
 2. **PR Template**: Verify that the PR template is used correctly.
 3. **Feedback**: Provide feedback precisely. If detailed discussion is required, consider discussing 1-on-1. Give feedback to specific lines you find problems on. Suggest or discuss what can be improved and what needs to be fixed or changed.
 4. **Source Branch**: Do not tick the 'Delete source branch' option.
+5. A reviewer should check all the points added checklist in this [PR template](PR_Template_ClientPortal.md) while reviewing the PR and will make sure that each point has been maintained properly.
 
 ## Post-Review
 
-- **Update PR Review Sheet**: After completing the review, update the PR sheet accordingly.
+- **Update PR Review Sheet**: After completing the review, update the [PR sheet](https://tinyurl.com/2be5zsg8) accordingly. 
