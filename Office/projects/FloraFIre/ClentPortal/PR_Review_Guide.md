@@ -4,14 +4,23 @@
 
 - **Branch Name**: branch names should follow the following convension - `feature/FFN-{ticket_no}-{Ticket_title}`
 for example if the jira ticket no is 498 and ticket title is **11.5.1 Payment Confirmation- Development** 
-the branch name should be `feature/FFN-498-11.5.1-Payment-Confirmation-Development`
-- **PR Name**: The PR title should be exactly the same as the branch name. from above example it should be `feature/FFN-498-11.5.1-Payment-Confirmation-Development`
+the branch name should be
+    ```
+        feature/FFN-498-11.5.1-Payment-Confirmation-Development
+    ```
+
+- **PR Name**: The PR title should be exactly the same as the branch name. from above example it should be 
+    ```
+        feature/FFN-498-11.5.1-Payment-Confirmation-Development
+    ```
 
 - **Commit Message**: Each commit message should follow the following commit message convention-
  `FFN - {ticketNo} - {commit message}`
 like in the above example commit messages for branch 
-*feature/FFN-498-11.5.1-Payment-Confirmation-Development* should be like - 
-`FFN-498-Refactored services and factories`
+*feature/FFN-498-11.5.1-Payment-Confirmation-Development* should be like -
+    ```
+    FFN-498-Refactored services and factories
+    ``` 
 ## PR Assignment and Tracking
 
 - **Assign Yourself**: If you are the assignee or the reviewer, make sure to assign yourself to the PR.
