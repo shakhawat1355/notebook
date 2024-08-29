@@ -59,6 +59,7 @@ We adhere to the following coding styles and best practices:
 
 - **C# Coding Conventions**: Follow the [Microsoft C# Coding Conventions](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions).
 - **NopCommerce Guidelines**: Nop Commerce has its own coding conventions. Visit this [NopCommerce Coding Convensions](https://docs.nopcommerce.com/en/developer/tutorials/coding-standards.html).
+- **NopStation Coding Convention**: Nopstation has its own coding structure. it can be found [here](CodingStructure_EcomPortal.md) 
 ## Gitflow
 
 We have our own Gitflow policy that implements the best practices for versioning. Visit our gitflow process documentation -
