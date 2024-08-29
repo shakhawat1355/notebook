@@ -1,28 +1,43 @@
-# Angular Project PR Template
-
-## Task Description
-Please include a summary of the feature or bug fix. Include relevant motivation and context.
+# Feature Addition PR Template
 
 ## Jira/Trello Ticket
 Link to the ticket:
 
 ## Changes Made
-- [ ] Added new components
-- [ ] Implemented form validation
-- [ ] Updated services
-- [ ] Refactored modules
-- [ ] Enhanced routing
-- [ ] Improved state management
+- .....
+- ....
+- .....
 
 ## Checklist:
-- [ ] Changed Jira/Trello card status
-- [ ] Removed unnecessary spaces/fields/directives from code
-- [ ] Followed proper naming conventions
-- [ ] Added comments, particularly in hard-to-understand areas
-- [ ] Resolved conflicts between `develop` and my branch locally
-- [ ] Ensured no build errors occur
-- [ ] Added/updated unit tests
-- [ ] Verified feature on different browsers and devices
 
-## Additional Details (if applicable)
+### Requirements & Functionality
+- [ ] Changed Jira card Status
+- [ ] Have the requirements been met? 
+- [ ] The new feature will not negatively impact existing functionality.
+- [ ] All different errors and warnings are handled correctly and logged
+
+### Clean Code Conventions  
+- [ ] No duplicated code (DRY Principle) and each class/method has a single responsibility
+- [ ] Relevant parameters are configurable
+- [ ] Naming conventions are followed
+- [ ] Comments are meaningful and placed where the code is not self-explanatory
+- [ ] Clean code is maintained overall 
+- [ ] Ensured proper implementation of standard design pattens and principles where needed
+
+### Code Formatting
+- [ ] Code is optimized for readability and is consistent with the rest of the codebase
+
+### Performance
+- [ ] Code is optimized for performance, especially database queries, loops, conditions, and data types
+
+### Version Controlling
+- [ ] Environment and feature branch are maintained properly
+- [ ] All commits have proper messages
+- [ ] Pull/merge request guidelines are followed
+
+### Security
+- [ ] Security best practices are considered
+- [ ] Use of Sonarlint or similar tools if applicable
+
+## Special Comment (if applicable)
 Include screenshots of the new feature or links to relevant resources.
