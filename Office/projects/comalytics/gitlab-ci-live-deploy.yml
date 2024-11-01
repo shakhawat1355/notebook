@@ -1,0 +1,107 @@
+# List of stages for jobs, and their order of execution
+stages:
+  - checkout
+  - stop_website
+  - build
+  - publish
+  - deploy
+  - start_website
+
+variables:
+  PLUGINS_DIR_LIVE : "C:\\Users\\nopsupport\\Desktop\\gitlab-ci-cd\\artifacts\\Plugins"
+  DEPLOY_DIR_SITE1_LIVE: "C:\\HostingSpaces\\JSG001\\groceryexpress.co.za\\wwwroot\\Plugins"
+  DEPLOY_DIR_SITE2_LIVE: "C:\\HostingSpaces\\JSG002\\foodgistics.co.za\\wwwroot\\Plugins"
+  ROOT_DIR_LIVE: "C:\\Users\\nopsupport\\Desktop\\gitlab-ci-cd"
+  SCRIPT_DIR_LIVE: "C:\\Users\\nopsupport\\Desktop\\gitlab-ci-cd\\scripts"
+  CACHE_DIR_LIVE: "C:\\Gitlab-runner\\builds\\t3_p7s5mV\\0\\nop-station\\comalytics-nopstation-b2b-nop-470\\src\\Presentation\\Nop.Web\\Plugins"
+  BACKUP_DIR_SITE1_LIVE: "C:\\Users\\nopsupport\\Desktop\\gitlab-ci-cd\\backup\\groceryexpress"
+  BACKUP_DIR_SITE2_LIVE: "C:\\Users\\nopsupport\\Desktop\\gitlab-ci-cd\\backup\\foodgistics"
+  LIVE_SITE1_NAME: "online.groceryexpress.co.za"
+  LIVE_SITE2_NAME: "online.foodgistics.co.za"
+  BRANCH_LIVE: "clients/groceryexpress/develop"
+
+checkout_live:
+  stage: checkout
+  tags:
+    - b2b-live-server
+  script:
+    - git config --system core.longpaths true
+    - git config --global advice.nameTooLong false
+    - git config --global safe.directory '*'
+    - git checkout $BRANCH_LIVE
+    - git pull
+  only:
+    - clients/groceryexpress/develop
+
+build_live:
+  stage: build
+  tags:
+    - b2b-live-server
+  script:
+    - cd $SCRIPT_DIR_LIVE
+    - ls
+    - powershell -File build_project.ps1
+  only:
+    - clients/groceryexpress/develop
+  cache:
+    key: build-cache
+    paths:
+      - $CACHE_DIR_LIVE
+
+publish_live:
+  stage: publish
+  tags:
+    - b2b-live-server
+  environment: production
+  script:
+    - cd $SCRIPT_DIR_LIVE
+    - ls
+    - powershell -File publish_project.ps1
+  only:
+    - clients/groceryexpress/develop
+  cache:
+    key: build-cache
+    paths:
+      - $CACHE_DIR_LIVE
+
+
+stop-website_live:
+  stage: stop_website
+  tags:
+    - b2b-live-server
+  script:
+    - Stop-Website $LIVE_SITE1_NAME
+    - Stop-WebAppPool -Name $LIVE_SITE1_NAME 
+    - Stop-Website $LIVE_SITE2_NAME
+    - Stop-WebAppPool -Name $LIVE_SITE2_NAME 
+  only:
+    - clients/groceryexpress/develop
+
+
+deploy_live:
+  stage: deploy
+  tags:
+    - b2b-live-server
+  script:
+    - xcopy $DEPLOY_DIR_SITE1_LIVE $BACKUP_DIR_SITE1_LIVE /y /c /h /e /r /s
+    - xcopy $DEPLOY_DIR_SITE2_LIVE $BACKUP_DIR_SITE2_LIVE /y /c /h /e /r /s
+    - xcopy $PLUGINS_DIR_LIVE $DEPLOY_DIR_SITE1_LIVE /y /c /h /e /r /s
+    - xcopy $PLUGINS_DIR_LIVE $DEPLOY_DIR_SITE2_LIVE /y /c /h /e /r /s
+
+  only:
+    - clients/groceryexpress/develop
+  retry: 2   
+
+
+start-website_live:
+  stage: start_website
+  tags:
+    - b2b-live-server
+  script:
+    - Start-WebAppPool -Name $LIVE_SITE1_NAME
+    - Start-WebAppPool -Name $LIVE_SITE2_NAME
+    - Start-Website $LIVE_SITE1_NAME
+    - Start-Website $LIVE_SITE2_NAME
+  only:
+    - clients/groceryexpress/develop
+  when: always 

@@ -1,0 +1,122 @@
+# List of stages for jobs, and their order of execution
+stages:
+  - checkout
+  - stop_website
+  - build
+  - publish
+  - deploy
+  - start_website
+
+variables:
+  PLUGINS_DIR_TEST : "C:\\Users\\Administrator\\Desktop\\gitlab-ci-cd\\artifacts\\Plugins"
+  DEPLOY_DIR_SITE1_TEST: "C:\\HostingSpaces\\JSG001\\groceryexpress.comalytics.com\\wwwroot\\Plugins"
+  DEPLOY_DIR_SITE2_TEST: "C:\\HostingSpaces\\JSG002\\foodgistics.comalytics.com\\wwwroot\\Plugins"
+  ROOT_DIR_TEST: "C:\\Users\\Administrator\\Desktop\\gitlab-ci-cd"
+  SCRIPT_DIR_TEST: "C:\\Users\\Administrator\\Desktop\\gitlab-ci-cd\\scripts"
+  CACHE_DIR_TEST: "C:\\Gitlab-Runner\\builds\\t3_NsAiAy\\0\\nop-station\\comalytics-nopstation-b2b-nop-470\\src\\Presentation\\Nop.Web\\Plugins"
+  BACKUP_DIR_SITE1_TEST: "C:\\Users\\Administrator\\Desktop\\gitlab-ci-cd\\backup\\groceryexpress"
+  BACKUP_DIR_SITE2_TEST: "C:\\Users\\Administrator\\Desktop\\gitlab-ci-cd\\backup\\foodgistics"
+  TEST_SITE1_NAME: "groceryexpress.comalytics.com"
+  TEST_SITE2_NAME: "foodgistics.comalytics.com"
+  BRANCH_TEST: "clients/groceryexpress/test"
+  EXECUTE: $CI_COMMIT_REF_NAME =~ /test/
+
+checkout_test:
+  stage: checkout
+  tags:
+    - b2b-test-server
+  # rules:
+  #   - if: $EXECUTE
+  script:
+    - git config --system core.longpaths true
+    - git config --global advice.nameTooLong false
+    - git config --global safe.directory '*'
+    - git checkout $BRANCH_TEST
+    - git branch
+    - echo $CI_COMMIT_REF_NAME
+    - git pull
+  only:
+    - clients/groceryexpress/test
+
+
+# Build (runs on both servers depending on tag)
+build_test:
+  stage: build
+  # rules:
+  #   - if: $EXECUTE
+  tags:
+    - b2b-test-server
+  script:
+    - cd $SCRIPT_DIR_TEST
+    - ls
+    - powershell -File build_project.ps1
+  only:
+    - clients/groceryexpress/test
+  cache:
+    key: build-cache
+    paths:
+      - $CACHE_DIR_TEST
+
+
+publish_test:
+  stage: publish
+  # rules:
+  #   - if: $EXECUTE
+  tags:
+    - b2b-test-server
+  environment: production
+  script:
+    - cd $SCRIPT_DIR_TEST
+    - ls
+    - powershell -File publish_project.ps1
+  only:
+    - clients/groceryexpress/test
+  cache:
+    key: build-cache
+    paths:
+      - $CACHE_DIR_TEST
+
+stop-website_test:
+  stage: stop_website
+  # rules:
+  #   - if: $EXECUTE
+  tags:
+    - b2b-test-server
+  script:
+    - Stop-Website $TEST_SITE1_NAME
+    - Stop-WebAppPool -Name $TEST_SITE1_NAME 
+    - Stop-Website $TEST_SITE2_NAME
+    - Stop-WebAppPool -Name $TEST_SITE2_NAME 
+  only:
+    - clients/groceryexpress/test
+
+deploy_test:
+  stage: deploy
+  # rules:
+  #   - if: $EXECUTE
+  tags:
+    - b2b-test-server
+  script:
+    - xcopy $DEPLOY_DIR_SITE1_TEST $BACKUP_DIR_SITE1_TEST /y /c /h /e /r /s
+    - xcopy $DEPLOY_DIR_SITE2_TEST $BACKUP_DIR_SITE2_TEST /y /c /h /e /r /s
+    - xcopy $PLUGINS_DIR_TEST $DEPLOY_DIR_SITE1_TEST /y /c /h /e /r /s
+    - xcopy $PLUGINS_DIR_TEST $DEPLOY_DIR_SITE2_TEST /y /c /h /e /r /s
+  only:
+    - clients/groceryexpress/test
+  retry: 2  
+
+start-website_test:
+  stage: start_website
+  # rules:
+  #   - if: $EXECUTE
+  tags:
+    - b2b-test-server
+  script:
+    - Start-WebAppPool -Name $TEST_SITE1_NAME
+    - Start-WebAppPool -Name $TEST_SITE2_NAME
+    - Start-Website $TEST_SITE1_NAME
+    - Start-Website $TEST_SITE2_NAME
+  only:
+    - clients/groceryexpress/test
+  when: always 
+
