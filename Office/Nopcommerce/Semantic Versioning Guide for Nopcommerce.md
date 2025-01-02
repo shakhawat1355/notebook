@@ -1,7 +1,3 @@
-Here’s the formatted **Markdown file** with the requested additions:
-
----
-
 ![Semantic Versioning](media/semantic_versioning_101.png)
 
 # **Semantic Versioning for nopCommerce Plugins**
